@@ -1,0 +1,113 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: #fff;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de títulos y etiquetas */
+h1 {
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Estilo de selectores */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Botón de calcular */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Resultado */
+#resultado {
+    margin-top: 20px;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#valorResistencia {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Resistor visual */
+#resistorPreview {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.resistor {
+    width: 200px;
+    height: 40px;
+    background: #d4af37;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banda {
+    width: 10px;
+    height: 100%;
+    position: absolute;
+}
+
+#resistorBanda1 { left: 30px; }
+#resistorBanda2 { left: 60px; }
+#resistorBanda3 { left: 90px; display: none; } /* Solo 5-6 bandas */
+#resistorMultiplicador { left: 120px; }
+#resistorTolerancia { left: 150px; }
+#resistorPPM { left: 180px; display: none; } /* Solo 6 bandas */
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .resistor {
+        width: 150px;
+    }
+
+    .banda {
+        width: 8px;
+    }
+}
