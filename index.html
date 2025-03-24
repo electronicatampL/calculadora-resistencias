@@ -1,277 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practicas</title>
-     <link rel="icon" href="carga-removebg-preview.png" type="image/png">
-     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-      <link rel="icon" href="carga-removebg-preview.png" type="image/png">
+    <title>Calculadora de Colores de Resistencias</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-
 <body>
-    <!-- Barra de búsqueda -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Buscar proyectos..." onkeyup="searchProjects()">
-    </div>
 
-     <div class="descubre">
-    <p>Descubre al creador de esta página.</p>
-    <a href="https://electronicatampl.github.io/GitWebDesigns/" class="btn">
-        <button class="burbuja">Descubrir</button>
-    </a>
-    </div>
-    
     <div class="container">
-        <h1>Proyectos de Electrónica</h1>
-        <p>En esta página encontrarás todo aquello necesario para nutrir tus conocimientos sobre electrónica.</p>
-    </div>
+        <h1>Calculadora de Colores de Resistencias</h1>
 
-    <!-- Proyectos -->
-    <div class="container project-container">
-        <h1>Componentes electrónicos y sus características</h1>
-        <br>
-        <p>Aquí encontrarás los componentes esenciales utilizados en la electrónica (Desde el inicio de taller hasta 4to
-            semestre por ahora)</p>
-        <div class="image-container">
-            <img src="componentes electronicos.jpg" alt="Resistencia de 5 bandas">
-        </div>
-        <a href="https://electronicatampl.github.io/listadecomponentes/">
-            <button class="burbuja">Ver componentes</button>
-        </a>
-    </div>
+        <label for="numBandas">Número de bandas:</label>
+        <select id="numBandas" onchange="actualizarBandas()">
+            <option value="4" selected>4 Bandas</option>
+            <option value="5">5 Bandas</option>
+            <option value="6">6 Bandas</option>
+        </select>
 
-    <div class="project-container">
-        <h1>Cómo conectar correctamente una tablilla de protoboard</h1>
-        <p>
-            Algunas personas se les dificulta usar la tablilla de protoboard, por lo que hoy nosotros te explicamos cómo
-            hacerlo de una manera correcta y sencilla. La protoboard es una herramienta muy útil para crear circuitos
-            electrónicos de manera temporal y sin necesidad de soldar. Sin embargo, entender su funcionamiento y
-            organización puede ser complicado al principio.
-        </p>
-        <div class="image-container">
-            <img src="tablilla.jpg" alt="Resistencia de 5 bandas">
-        </div>
-        <a href="https://electronicatampl.github.io/usodetablilla/">
-            <button class="burbuja">Ver como utilizar protoboard</button>
-        </a>
-    </div>
+        <div id="bandasContainer">
+            <label for="banda1">Banda 1:</label>
+            <select id="banda1" class="colorSelector"></select>
 
-    <div class="project-container">
-        <h1>CODIGO DE COLORES</h1>
-        <p>Aquí encontraras el codigo de colores para poder leer de una mejor manera las bandas de resistencias y
-            conocer su valor de acuerdo a su color.</p>
-        <div class="image-container">
-            <img src="codigo.png" alt="Resistencia de 5 bandas">
-        </div>
-        <a href=" https://electronicatampl.github.io/codigodecolores/">
-            <button class="burbuja">Ver codigo de colores</button>
-        </a>
-    </div>
+            <label for="banda2">Banda 2:</label>
+            <select id="banda2" class="colorSelector"></select>
 
-    <div class="project-container">
-        <h1>Tipos de resistencias y como leerlas</h1>
-        <p>Aquí te mostraremos algunas resistencias de bandas y sus variantes, aprenderás a cómo leerlas mediante el
-            código de colores y en qué se diferencian las resistencias que tienen más bandas que otras.</p>
-        <div class="image-container">
-            <img src="tipos de r.jpg" alt="Resistencia de 5 bandas">
-        </div>
-        <a href="https://electronicatampl.github.io/comoleerresistor/">
-            <button class="burbuja">Ver cómo leer resistencias</button>
-        </a>
-    </div>
+            <label for="banda3" id="banda3Label">Banda 3 (Solo 5-6 Bandas):</label>
+            <select id="banda3" class="colorSelector"></select>
 
-    <div class="project-container">
-        <h1>Cómo leer correctamente los diagramas de los circuitos</h1>
-        <p>Para nadie es un misterio que algunos circuitos son muy complicados de leer, pero no te preocupes, una vez
-            que aprendas cómo leerlos de una manera correcta será pan comido. A continuación te explicaremos brevemente
-            cómo leerlos de una manera correcta.</p>
-        <div class="image-container">
-            <img src="diagramas.jpg" alt="Resistencia de 5 bandas">
-        </div>
-        <a href="https://electronicatampl.github.io/comoleerdiagramas/">
-            <button class="burbuja">Ver cómo leer resistencias</button>
-        </a>
-    </div>
+            <label for="multiplicador">Multiplicador:</label>
+            <select id="multiplicador" class="colorSelector"></select>
 
-    <div class="project-container">
-        <h1>Circuitos de resistencias en serie y en paralelo</h1>
-        <p>Existen distintas maneras dependiendo de cómo se coloquen las resistencias, en serie o paralelo. A
-            continuación te mostraremos cómo funciona cada una.</p>
-        <div class="image-container">
-            <img src="serie2.jpg" alt="Resistencia de 5 bandas">
-        </div>
-        <a href="https://electronicatampl.github.io/paraleloyserie/">
-            <button class="burbuja">Ver Tipos de circuitos de resistencias</button>
-        </a>
-    </div>
+            <label for="tolerancia">Tolerancia:</label>
+            <select id="tolerancia" class="colorSelector"></select>
 
-    <div class="project-container">
-        <h1>Dimmer</h1>
-        <p>Un dimmer es un dispositivo electrónico que permite ajustar la intensidad de la luz en una lámpara o
-            bombilla,
-            regulando el flujo de corriente eléctrica. Se utiliza para controlar el brillo y ahorrar energía.</p>
-        <div class="image-container">
-            <img src="dimmer.png" alt="Resistencia de 5 bandas">
+            <label for="ppm" id="ppmLabel">Coeficiente de temperatura (Solo 6 Bandas):</label>
+            <select id="ppm" class="colorSelector"></select>
         </div>
-        <a href="https://electronicatampl.github.io/dimmer/">
-            <button class="burbuja">Ver dimmer</button>
-        </a>
-    </div>
-    <div class="project-container">
-        <h1>LEY DE OHM</h1>
-        <p>La Ley de Ohm explica la relación entre el voltaje, la corriente y la resistencia en un circuito eléctrico. Básicamente, dice que la cantidad de corriente que fluye por 
-            un circuito depende de cuánta fuerza eléctrica (voltaje) se le aplica y de qué tanto se opone al paso de la corriente (resistencia).
-            Si el voltaje aumenta o la resistencia baja, la corriente fluye más fácilmente; si el voltaje baja o la resistencia sube, la corriente disminuye.</p>
-        <div class="image-container">
-            <img src="electric-ley-ohm-triangulo.png" alt="Ley de ohm">
-        </div>
-        <a href="https://electronicatampl.github.io/leydeOHM/">
-            <button class="burbuja">Ley de ohm</button>
-        </a>
-    </div>
 
-    <div class="project-container">
-        <h1>Tipos de resistencias variables</h1>
-        <p>Las resistencias variables son componentes electrónicos que permiten ajustar la resistencia de un circuito de
-            manera manual. Se utilizan para controlar el flujo de corriente, como en potenciómetros y reóstatos.</p>
-        <div class="image-container">
-            <img src="r varia.jpeg" alt="Ley de ohm">
-        </div>
-        <a href="https://electronicatampl.github.io/resistenciasvariables/">
-            <button class="burbuja">Ver tipos de resistencias variables</button>
-        </a>
-    </div>
-    <div class="project-container">
-        <h1>Transistores</h1>
-        <p>El 2N2222 es principalmente un transistor NPN, lo que significa que su corriente fluye de colector a emisor,
-            y la corriente base es positiva con respecto al emisor para permitir la conducción.
-            Sin embargo, hay transistores PNP (como el 2N2907) que operan de manera inversa, con la corriente fluyendo
-            de emisor a colector</p>
-        <div class="image-container">
-            <img src="2njjjj.png" alt="Ley de ohm">
-        </div>
-        <a href="https://electronicatampl.github.io/transistor/">
-            <button class="burbuja">Ver Transistores</button>
-        </a>
-    </div>
-    <div class="project-container">
-        <h1>Timer 555</h1>
-        <p>El Timer 555 es un circuito integrado que se utiliza para generar temporizadores, pulsos y oscilaciones en electrónica.</p>
-        <div class="image-container">
-            <img src="timer circuito lista.jpeg" alt="Timer-555">
-        </div>
-        <a href="https://electronicatampl.github.io/timer555/">
-            <button class="burbuja">Ver Timer 555</button>
-        </a>
-    </div>
-     <div class="project-container">
-        <h1>Compuertas Lógicas</h1>
-        <p>Son componentes electrónicos que realizan operaciones básicas de lógica booleana, procesando señales digitales (0 y 1). 
-            Funcionan con voltajes donde 0 es baja tensión y 1 es alta tensión.</p>
-        <div class="image-container">
-            <img src="compuertas.jpeg" alt="Timer-555">
-        </div>
-        <a href="https://electronicatampl.github.io/compuertas/">
-            <button class="burbuja">Ver Compuertas Lógicas</button>
-        </a>
-    </div>
-     <div class="project-container">
-        <h1>TRIAC</h1>
-        <p>Un TRIAC (Triode for Alternating Current) es un dispositivo semiconductor que actúa como un interruptor controlado para corriente alterna. A diferencia de un tiristor común, el TRIAC puede conducir en ambas direcciones, lo que lo hace ideal para controlar la potencia en cargas de CA,
-            como lámparas o motores. Se activa aplicando una señal a su terminal de gate (G) y sigue conduciendo hasta que la corriente
-            cae por debajo de un nivel mínimo (corriente de mantenimiento)..</p>
-        <div class="image-container">
-            <img src="mac122.jpeg" alt="Ma12" class="mac12-o">
-        </div>
-        <a href="https://electronicatampl.github.io/triac/">
-            <button class="burbuja">Ver Triac</button>
-        </a>
-    </div>
-    <div class="project-container">
-        <h1>ETAPAS DE POTENCIA</h1>
-        <p>Una etapa de potencia es un circuito o sistema encargado de amplificar o controlar la entrega de energía eléctrica a una carga, como un motor, una lámpara o un altavoz. Se encuentra en dispositivos como amplificadores de audio, fuentes de alimentación y controladores de motores.
-            Su función principal es manejar altas corrientes y voltajes sin perder eficiencia, asegurando que la energía suministrada sea adecuada para la aplicación.</p>
-        <div class="image-container">
-            <img src="etapas.jpeg" alt="Ma12" class="etapas-de">
-        </div>
-        <a href="https://electronicatampl.github.io/etapasdepotencia/">
-            <button class="burbuja">Ver Etapas de Potencia.</button>
-        </a>
-    </div>
-    </div>
-    <div class="project-container">
-        <h1>PUENTE H</h1>
-        <p>Un puente H es un circuito electrónico que permite controlar la dirección de giro de un motor de corriente continua (DC). Se compone de cuatro interruptores (transistores o relés) dispuestos en forma de "H", permitiendo invertir la polaridad del voltaje aplicado al motor.</p>
-        <div class="image-container">
-            <img src="pppp.jpg" alt="h" class="etapas-de-h">
-        </div>
-        <a href="https://electronicatampl.github.io/etapasdepotencia/">
-            <button class="burbuja">Ver Puente H.</button>
-        </a>
-    </div>
-    <div class="project-container">
-        <h1>SCR</h1>
-        <p>Un SCR (Silicon Controlled Rectifier) es un tipo de tiristor que funciona como un interruptor controlado. Se activa con una señal en su compuerta y permite el paso de corriente en un solo sentido hasta que la corriente cae por debajo de un umbral específico. Se usa en el control de potencia, reguladores de voltaje y protección de circuitos eléctricos.</p>
-        <div class="image-container">
-            <img src="mmmm.jpg" alt="scr" class="scr">
-        </div>
-        <a href="https://electronicatampl.github.io/scr/">
-            <button class="burbuja">Ver SCR.</button>
-        </a>
-    </div>
-    <h1>La pagina aún se encuentra en desarrollo. </h1>
+        <button onclick="calcularResistencia()">Calcular</button>
 
-    <!-- Referencia al archivo JavaScript -->
-    <script src="script.js"></script>
+        <div id="resultado">
+            <h2>Valor de la Resistencia:</h2>
+            <p id="valorResistencia">0 Ω</p>
+        </div>
 
-    <div id="loading-screen">
-        <img id="loading-spinner" src="carga.png" alt="Cargando...">
+        <div id="resistorPreview">
+            <div class="resistor">
+                <div class="banda" id="resistorBanda1"></div>
+                <div class="banda" id="resistorBanda2"></div>
+                <div class="banda" id="resistorBanda3"></div>
+                <div class="banda" id="resistorMultiplicador"></div>
+                <div class="banda" id="resistorTolerancia"></div>
+                <div class="banda" id="resistorPPM"></div>
+            </div>
+        </div>
     </div>
-    <style>
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            /* Fondo blanco */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        #loading-spinner {
-            width: 100px;
-            height: 100px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-
-    <script>
-        window.addEventListener("load", () => {
-            const loadingScreen = document.getElementById("loading-screen");
-            setTimeout(() => {
-                loadingScreen.style.display = "none";
-            }, 4000); // Simula 3 segundos de carga
-        });
-    </script>
-
 
 </body>
-
 </html>
